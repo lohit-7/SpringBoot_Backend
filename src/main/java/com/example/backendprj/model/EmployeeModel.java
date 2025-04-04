@@ -1,11 +1,9 @@
 package com.example.backendprj.model;
 
-import jakarta.persistence.Column;
+
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+
 
 import java.util.Date;
 
@@ -14,8 +12,13 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@ToString
 public class EmployeeModel {
 
+    private  Long empId;
+
+    @NotNull(message = "not be empty")
     private String firstName;
 
     private String lastName;
@@ -30,5 +33,4 @@ public class EmployeeModel {
 
     private Date createdDate;
 
-    private Date updatedDate;
 }
