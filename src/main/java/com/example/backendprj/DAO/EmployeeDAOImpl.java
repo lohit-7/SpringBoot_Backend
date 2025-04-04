@@ -5,19 +5,21 @@ import com.example.backendprj.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
+
 
 public class EmployeeDAOImpl implements EmployeeDAO{
     @Autowired
     private EmployeeRepository employeeRepository;
 
     @Override
-    public EmployeeEntity getAllEmployee() {
-        return null;
+    public List<EmployeeEntity> getAllEmployee() {
+        return employeeRepository.findAll();
     }
 
     @Override
-    public List<EmployeeEntity> getAllEmpById(Long empId) {
-        return List.of();
+    public Optional<EmployeeEntity> getAllEmpById(Long empId) {
+        return employeeRepository.findById(empId);
     }
 
     @Override
@@ -26,12 +28,12 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    public EmployeeEntity UpdateEmployee(EmployeeEntity employeeEntity) {
+    public EmployeeEntity UpdateEmployee(Long empId, EmployeeEntity employeeEntity) {
         return null;
     }
 
     @Override
-    public EmployeeEntity deleteEmp(Long empId) {
-        return null;
+    public void deleteEmp(Long empId) {
+
     }
 }

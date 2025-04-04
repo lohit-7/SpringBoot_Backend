@@ -5,13 +5,13 @@ import com.example.backendprj.domain.EmployeeEntity;
 
 public interface EmployeeDAO {
 
-    EmployeeEntity getAllEmployee();
+    List<EmployeeEntity> getAllEmployee();
 
-    List<EmployeeEntity> getAllEmpById(Long empId);
+    Optional<EmployeeEntity> getAllEmpById(Long empId);
 
     EmployeeEntity addEmployee(EmployeeEntity employeeEntity);
 
-    EmployeeEntity UpdateEmployee(EmployeeEntity employeeEntity);
+    EmployeeEntity UpdateEmployee(Long empId, EmployeeEntity employeeEntity);
 
-    EmployeeEntity deleteEmp(Long empId);
+    void deleteEmp(Long empId);
 }
