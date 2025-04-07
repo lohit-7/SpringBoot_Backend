@@ -21,8 +21,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public EmployeeModel saveEmp(EmployeeModel employeeModel) {
-        return null;
+    public String saveEmp(EmployeeModel employeeModel) {
+      EmployeeEntity employeeEntity = EmployeeMapper.addToEmployeeEntity(employeeModel);
+
+       employeeDAO.addEmployee(employeeEntity);
+
+       return "created successfully";
     }
 
     @Override
@@ -33,5 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void deleteEmp(Long empId) {
 
+    }
+
+    @Override
+    public EmployeeModel updateEmp(Long empId, EmployeeModel employeeModel) {
+        return null;
     }
 }

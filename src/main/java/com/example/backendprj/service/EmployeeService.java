@@ -9,7 +9,7 @@ public interface EmployeeService {
 
     public Optional<EmployeeModel> getEmpById(Long empId);
 
-    public EmployeeModel saveEmp(EmployeeModel employeeModel);
+    public String saveEmp(EmployeeModel employeeModel);
 
     public EmployeeModel updateEmp(Long empId, EmployeeModel employeeModel);
 
