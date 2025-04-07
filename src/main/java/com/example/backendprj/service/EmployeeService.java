@@ -7,7 +7,7 @@ import java.util.*;
 public interface EmployeeService {
     public List<EmployeeModel> getAllEmp();
 
-    public Optional<EmployeeModel> getEmpById(Long empId);
+    public EmployeeModel getEmpById(Long empId);
 
     public String saveEmp(EmployeeModel employeeModel);
 

@@ -30,13 +30,15 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Optional<EmployeeModel> getEmpById(Long empId) {
-        return Optional.empty();
+    public EmployeeModel getEmpById(Long empId) {
+        return employeeDAO.getAllEmpById(empId)
+                .map(EmployeeMapper::getEmployeeListFromEntity)
+                .orElse(null);
     }
 
     @Override
     public void deleteEmp(Long empId) {
-
+        employeeDAO.deleteEmp(empId);
     }
 
     @Override
