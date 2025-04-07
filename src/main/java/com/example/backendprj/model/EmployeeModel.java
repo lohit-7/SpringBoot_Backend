@@ -21,14 +21,19 @@ public class EmployeeModel {
     @NotNull(message = "not be empty")
     private String firstName;
 
+    @NotNull(message = "enter this field")
     private String lastName;
 
+    @NotNull(message = "enter this field")
     private String phoneNumber;
 
+    @NotNull(message = "enter this field")
     private String email;
 
+    @NotNull(message = "enter this field")
     private String address;
 
+    @NotNull(message = "enter this field")
     private String aadharNumber;
 
     private Date createdDate;
