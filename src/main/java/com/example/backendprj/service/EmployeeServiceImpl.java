@@ -43,6 +43,21 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public EmployeeModel updateEmp(Long empId, EmployeeModel employeeModel) {
+        EmployeeEntity employeeEntity = employeeDAO.getAllEmpById(empId).get();
+
+        if (employeeEntity != null) {
+            employeeEntity.setFirstName(employeeModel.getFirstName());
+            employeeEntity.setLastName(employeeModel.getLastName());
+            employeeEntity.setPhoneNumber(employeeModel.getPhoneNumber());
+            employeeEntity.setEmail(employeeModel.getEmail());
+            employeeEntity.setAddress(employeeModel.getAddress());
+            employeeEntity.setAadharNumber(employeeModel.getAadharNumber());
+            employeeEntity.setCreatedDate(employeeModel.getCreatedDate());
+
+            employeeEntity = employeeDAO.addEmployee(employeeEntity);
+
+            return EmployeeMapper.getEmployeeListFromEntity(employeeEntity);
+        }
         return null;
     }
 }
