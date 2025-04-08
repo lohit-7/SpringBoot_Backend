@@ -2,6 +2,7 @@ package com.example.backendprj.DAO;
 
 import com.example.backendprj.domain.EmployeeEntity;
 import com.example.backendprj.repository.EmployeeRepository;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Component
+@NoArgsConstructor
 @Slf4j
 
 public class EmployeeDAOImpl implements EmployeeDAO{
