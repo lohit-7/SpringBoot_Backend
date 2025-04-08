@@ -2,18 +2,14 @@ package com.example.backendprj.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import java.util.Date;
 
 @Entity
 @Getter
 @Table(name = "Employees")
 @Setter
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -41,15 +37,5 @@ public class EmployeeEntity {
 
     @Column(name = "aadharNumber")
     private String aadharNumber;
-
-    @Column(name = "createdDate")
-    @CreatedDate
-    @CreationTimestamp
-    private Date createdDate;
-
-    @Column(name = "updatedDate")
-    @LastModifiedDate
-    @UpdateTimestamp
-    private Date updatedDate;
 
 }
