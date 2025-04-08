@@ -1,9 +1,11 @@
 package com.example.backendprj.service;
 
 import com.example.backendprj.model.EmployeeModel;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public interface EmployeeService {
     public List<EmployeeModel> getAllEmp();
 

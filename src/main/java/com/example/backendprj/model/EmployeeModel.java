@@ -12,7 +12,6 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @ToString
 public class EmployeeModel {
 

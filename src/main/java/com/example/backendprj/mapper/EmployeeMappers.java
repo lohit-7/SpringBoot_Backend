@@ -4,14 +4,7 @@ import com.example.backendprj.domain.EmployeeEntity;
 import com.example.backendprj.model.EmployeeModel;
 import lombok.*;
 
-@Builder
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@Setter
-@Getter
-public class EmployeeMapper {
+public class EmployeeMappers {
 
     public static EmployeeEntity addToEmployeeEntity(EmployeeModel employeeModel){
         return EmployeeEntity.builder()
@@ -20,8 +13,6 @@ public class EmployeeMapper {
                 .phoneNumber(employeeModel.getPhoneNumber())
                 .email(employeeModel.getEmail())
                 .address(employeeModel.getAddress())
-                .aadharNumber(employeeModel.getAadharNumber())
-                .createdDate(employeeModel.getCreatedDate())
                 .build();
     }
 
@@ -34,7 +25,6 @@ public class EmployeeMapper {
         employeeModel.setEmail(employeeEntity.getEmail());
         employeeModel.setAddress(employeeEntity.getAddress());
         employeeModel.setAadharNumber(employeeEntity.getAadharNumber());
-        employeeModel.setCreatedDate(employeeEntity.getCreatedDate());
         return employeeModel;
     }
 }
