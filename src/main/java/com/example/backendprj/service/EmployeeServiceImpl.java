@@ -38,9 +38,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public EmployeeModel getEmpById(Long empId) {
-        return employeeDAO.getAllEmpById(empId)
-                .map(EmployeeMappers::getEmployeeListFromEntity)
-                .orElse(null);
+        if (empId != null) {
+            return employeeDAO.getAllEmpById(empId)
+                    .map(EmployeeMappers::getEmployeeListFromEntity)
+                    .orElse(null);
+        }
+        return null;
     }
 
     @Override
