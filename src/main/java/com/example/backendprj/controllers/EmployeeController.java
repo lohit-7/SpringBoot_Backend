@@ -27,6 +27,13 @@ public class EmployeeController {
         String emp = employeeService.saveEmp(employeeModel);
         return ResponseEntity.ok(emp);
     }
+
+    @GetMapping("/{empId}")
+    public ResponseEntity<EmployeeModel> getEmpById(@PathVariable("empId") Long empId){
+
+        EmployeeModel employeeModel = employeeService.getEmpById(empId);
+        return ResponseEntity.ok(employeeModel);
+    }
 }
 
 
