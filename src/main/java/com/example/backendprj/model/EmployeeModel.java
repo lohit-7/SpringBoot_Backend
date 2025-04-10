@@ -1,11 +1,7 @@
 package com.example.backendprj.model;
 
-
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
-
-import java.util.Date;
 
 @Getter
 @Setter
@@ -34,7 +30,5 @@ public class EmployeeModel {
 
     @NotNull(message = "enter this field")
     private String aadharNumber;
-
-    private Date createdDate;
 
 }
