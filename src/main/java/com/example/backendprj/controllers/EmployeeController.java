@@ -40,16 +40,25 @@ public class EmployeeController {
 
 
     @GetMapping("/{empId}")
-    public ResponseEntity<EmployeeModel> getEmpById(@PathVariable("empId") Long empId){
-
-        EmployeeModel employeeModel = employeeService.getEmpById(empId);
-        return ResponseEntity.ok(employeeModel);
+    public ResponseEntity<?> getEmpById(@PathVariable("empId") Long empId) {
+        try {
+            EmployeeModel employeeModel = employeeService.getEmpById(empId);
+            return ResponseEntity.ok(employeeModel);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error fetching employee with ID " + empId + ": " + e.getMessage());
+        }
     }
 
     @PutMapping("/{empId}")
-    public ResponseEntity<EmployeeModel> updateEmp(@PathVariable("empId") Long empId, @RequestBody EmployeeModel employeeModel){
-        EmployeeModel employeeModel1 = employeeService.updateEmp(empId, employeeModel);
-        return  ResponseEntity.ok(employeeModel1);
+    public ResponseEntity<?> updateEmp(@PathVariable("empId") Long empId, @RequestBody EmployeeModel employeeModel) {
+        try {
+            EmployeeModel updatedEmployee = employeeService.updateEmp(empId, employeeModel);
+            return ResponseEntity.ok(updatedEmployee);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error updating employee with ID " + empId + ": " + e.getMessage());
+        }
     }
 
     @DeleteMapping("/{empId}")
