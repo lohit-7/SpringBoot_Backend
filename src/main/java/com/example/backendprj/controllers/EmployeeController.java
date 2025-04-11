@@ -62,10 +62,16 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{empId}")
-    public ResponseEntity<?> deleteEmp(@PathVariable("empId") Long empId){
-        employeeService.deleteEmp(empId);
-        return ResponseEntity.ok("deleted successfully.");
+    public ResponseEntity<?> deleteEmp(@PathVariable("empId") Long empId) {
+        try {
+            employeeService.deleteEmp(empId);
+            return ResponseEntity.ok("Deleted successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error deleting employee with ID " + empId + ": " + e.getMessage());
+        }
     }
+
 }
 
 
